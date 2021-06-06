@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: zkan
+Version: 1.0.1
+Summary: Kan's Business Card
+Home-page: https://github.com/zkan/py-business-card
+Author: Kan Ouivirach
+Author-email: zkan.cs@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+
+# Kan's Business Card in Python
+
+## To Publish
+
+```sh
+pip install twine
+python3 setup.py sdist bdist_wheel
+twine check dist/*
+twine upload dist/*
+```
+
+

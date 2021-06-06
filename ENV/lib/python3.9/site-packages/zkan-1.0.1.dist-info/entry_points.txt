@@ -1,0 +1,3 @@
+[console_scripts]
+zkan = zkan.__main__:main
+
