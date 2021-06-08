@@ -1,5 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.views import View
+from core.models import Profile, Email
+from core.forms import SubscriberForm
 
 
 # Create your views here.
@@ -12,3 +15,35 @@ def index(request):
             <p>I know it's hard, but I will do it.</p> \
            " % (image)
     return HttpResponse(http)
+
+class IndexView(View):
+    def get(self, request):
+        name = "Moo"
+
+        profile = Profile.objects.get(id=1)
+
+        form = SubscriberForm()
+
+        return render(
+            request, 
+            "index.html",
+        {
+            "name": name,
+            "form": form,
+            "profile": profile.name
+        }
+        )
+
+    def post(self, request):
+        print(request.POST)    
+        
+        form = SubscriberForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+            user_email = form.cleaned_data.get("email")
+            Email.objects.create(email = user_email)    
+
+        return render(
+            request, 
+            "index.html"
+        )

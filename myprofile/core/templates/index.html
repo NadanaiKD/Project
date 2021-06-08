@@ -1,0 +1,15 @@
+{% load static %}        
+    
+    <h1>{{name}}LM is Me</h1> 
+    <h2>Lukmoo</h2> 
+    <p>I am newbie for coding </p> 
+    <img src=%s width='500' height='500' ></p> 
+    <p>I know it's hard, but I will do it.</p> 
+    <div>
+        <p>Subscribe Me:</p>
+        <form action="." method="POST">
+            {% csrf_token %}
+            {{ form.email }}
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
