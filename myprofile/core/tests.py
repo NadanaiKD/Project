@@ -43,7 +43,7 @@ class TestIndexView(TestCase):
         data = {
             "email" : "Moo@testmail.com"
         }
-        response = self.client.post("/"), data=data)
+        response = self.client.post("/", data=data)
 
         #then
         subscriber = Subscriber.object.last()

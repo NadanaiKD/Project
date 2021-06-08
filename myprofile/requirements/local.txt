@@ -2,3 +2,4 @@
 
 flake8==3.9.2
 black==21.5b2
+pytest-django==4.4.0
