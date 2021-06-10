@@ -1,15 +1,21 @@
 {% load static %}        
-    
-    <h1>{{name}}LM is Me</h1> 
-    <h2>Lukmoo</h2> 
-    <p>I am newbie for coding </p> 
-    <img src=%s width='500' height='500' ></p> 
+    <html>
+    <h1>{{ title }}</h1> 
+    <h1>LM is Me</h1>
+    <h2>my name is {{ name }}</h2> 
+    <p>{{ about_me }}</p> 
+    <!-- <img src=%s width='500' height='500' ></p>  -->
     <p>I know it's hard, but I will do it.</p> 
+    <div><span>GithHub:</span>{{ github_url }}</div>
+    
     <div>
         <p>Subscribe Me:</p>
         <form action="." method="POST">
+            <!-- security  -->
             {% csrf_token %}
+            <!-- validation form email from django form -->
             {{ form.email }}
             <button type="submit">Subscribe</button>
         </form>
     </div>
+    </html>
