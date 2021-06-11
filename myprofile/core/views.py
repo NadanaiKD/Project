@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.views import View
 from core.models import Profile, Email
 from core.forms import SubscriberForm
+from core.images import Me
 
 
 # Create your views here.
@@ -20,7 +21,7 @@ def index(request):
             <p>I know it's hard, but I will do it.</p> \
             </html>
            """
-            % (image)
+            % (Me)
     )
     return HttpResponse(http)
 
