@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.views import View
 from core.models import Profile, Email
@@ -95,3 +95,11 @@ class IndexView(View):
                 "profile": profile.name
             }
         )
+
+
+class SubscriberAPIVIew(View):
+    def get(self, request):
+        data = {
+            "text": "Hello world"
+        }
+        return JsonResponse(data)
