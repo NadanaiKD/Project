@@ -12,6 +12,7 @@ class ProfileAdmin(admin.ModelAdmin):
         "name",
     )
 
+
 @admin.register(Email)
 class EmailAdmin(admin.ModelAdmin):
     list_display = (
