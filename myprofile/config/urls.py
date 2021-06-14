@@ -20,6 +20,7 @@ from my_profile.core.views import (
     index, 
     IndexView, 
     SubscriberAPIView,
+    ProfileAPIView,
 )
 
 urlpatterns = [
@@ -28,4 +29,5 @@ urlpatterns = [
     path('index/', index),
     path('admin/', admin.site.urls),
     path("subscribers/", SubscriberAPIView.as_view()),
+    path("profile/", ProfileAPIView.as_view()),
 ]

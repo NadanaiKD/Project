@@ -1,7 +1,7 @@
-from core.models import Email
+from my_profile.core.models import Email
 from django.test import TestCase
 
-from core.models import Profile
+from my_profile.core.models import Profile
 
 # from core.model import
 
@@ -57,3 +57,24 @@ class SubscriberEmail(TestCase):
 
         # Then
         assert email.email == "Moo@testemail.com"
+
+
+class ProjectAPIView(TestCase):
+    def test_view_get_profile_should_be_accessible(self):
+
+        response = self.client.get('/profile/')
+
+        assert response.status_code == 200
+
+    def test_view_get_profile_should_be_return_data(self):
+        Profile.objects.create(
+            name="moo",
+        )
+        expected = {
+            "name": "moo",
+        }
+
+        response = self.client.get('/profile/')
+
+        assert response.status_code == 200
+        assert response.data["name"] == expected["name"]

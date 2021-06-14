@@ -1,12 +1,12 @@
-from re import T, sub
-from django.http import HttpResponse, JsonResponse
+# from re import T, sub
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
-from rest_framework import serializers
+# from rest_framework import serializers
 from my_profile.core.models import Profile, Email
 from my_profile.core.forms import SubscriberForm
 from my_profile.core.images import Me
-from my_profile.core.serializers import SubscriberSerializer
+from my_profile.core.serializers import SubscriberSerializer, ProfileSerializer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
@@ -14,9 +14,6 @@ from rest_framework import status
 
 # Create your views here.
 def index(request):
-    image = "https://scontent.fbkk12-2.fna.fbcdn.net/v/t31.18172-8/17039375_1413314708718737_7612081425750414986_o.jpg?_\nc_cat=104&ccb=1-3&_nc_\
-            sid=09cbfe&_nc_eui2=AeHNVHSGiLFBGLNaF11ssc50C-P8RooO4hAL4_xGig7iEKWkZ2nO9crW69UZW1MWYXl6JW8QNTXnI-3RPH1EhYNM&_nc_ohc=6rN0_NpqWoQAX-R-\
-            ns0&_nc_ht=scontent.fbkk12-2.fna&oh=dc7330ef7f530fd499254dafb81ef218&oe=60E0EA04"
     http = (
             """
             <html>
@@ -127,3 +124,10 @@ class SubscriberAPIView(APIView):
             serializers.save()
             return Response(serializers.data, status=status.HTTP_201_CREATED)
         return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class ProfileAPIView(APIView):
+    def get(self, request):
+        profile = Profile.objects.first()
+        serializers = ProfileSerializer(profile)
+        return Response(serializers.data)
