@@ -3,10 +3,10 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.views import View
 from rest_framework import serializers
-from core.models import Profile, Email
-from core.forms import SubscriberForm
-from core.images import Me
-from core.serializers import SubscriberSerializer
+from my_profile.core.models import Profile, Email
+from my_profile.core.forms import SubscriberForm
+from my_profile.core.images import Me
+from my_profile.core.serializers import SubscriberSerializer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status

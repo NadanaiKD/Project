@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from core.views import (
+from my_profile.core.views import (
     index, 
     IndexView, 
     SubscriberAPIView,

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from core.models import Email
+from my_profile.core.models import Email
 
 
 class SubscriberSerializer(serializers.Serializer):
